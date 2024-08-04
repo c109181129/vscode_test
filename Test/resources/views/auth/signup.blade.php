@@ -9,8 +9,8 @@
 
 @include('components.socialButtons')
 
-Email： <input type="text" name="email" placeholder="Email" > 
-密碼： <input type="password" name="password" placeholder="密碼" > 
-暱稱： <input type="text" name="nickname" placeholder="暱稱" > 
+Email：  <input type="text" name="email" placeholder="Email" > <br>
+密碼：   <input type="password" name="password" placeholder="密碼" > <br>
+暱稱：   <input type="text" name="nickname" placeholder="暱稱" > <br>
 
 @endsection 

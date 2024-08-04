@@ -25,6 +25,19 @@ class UserAuthController extends Controller
         return view( 'auth.signup' , $binding);
 
     }
+
+
+    public function inherit()
+
+        //$portal =傳送點變數
+    {
+        $portal=[
+            'title' => 'Login - Layout 3 | Canvas',
+            
+        ];
+        return view('auth inherit', $portal) ;
+    } 
+
     
 
 }
