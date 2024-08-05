@@ -14,9 +14,6 @@ class User extends Model {
     protected $primaryKey = 'id';
     // 可以大量指定異動的欄位（Mass Assignment）
     protected $fillable = [
-        "email",
-        "password",
-        "type",
-        "nickname",
+        'account', 'password', 'nickname', 'phone', 'repassword', 'name'
     ];
 }

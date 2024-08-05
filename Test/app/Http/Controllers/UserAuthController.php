@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User; // 导入 User 模型
+use Illuminate\Support\Facades\Hash; // 导入 Hash 类
 
 class UserAuthController extends Controller
 {
@@ -68,10 +70,25 @@ class UserAuthController extends Controller
 
     public function chooiseProcess(Request $request)
     {
-        // 假設你要處理一些數據
         $form_data = $request->all();
 
-        // 打印數據並終止腳本執行
-        dd($form_data);
+        // 数据验证
+        if (empty($form_data['password']) || empty($form_data['account']) || empty($form_data['nickname'])) {
+            return redirect('/user/auth/chooise')
+                ->withInput()
+                ->withErrors(['message' => '資料不齊全']);
+        } else {
+            $user = User::create([
+                'account' => $form_data['account'],
+                'password' => Hash::make($form_data['password']),
+                'nickname' => $form_data['nickname'],
+                'phone' => $form_data['phone'],
+                'repassword' => Hash::make($form_data['repassword']),
+                'name' => $form_data['name']
+            ]);
+
+            dd($user);
+        }
     }
 }
+
